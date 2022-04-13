@@ -11,16 +11,16 @@
 import random
 from art import logo
 
+print(logo)
 print("Welcome to the Number Guessing Game!")
-print("I'm thinling a number between 1 and 100.")
+print("I'm thinking a number between 1 and 100.")
 
 def difficulty_level(guess_quantity):
-  print(logo)
   number = random.randint(1, 101)
   continue_game = True
   while continue_game:
     if guess_quantity > 0:
-      user_guess = int(input("Please guess a number : "))
+      user_guess = int(input(f"You have {guess_quantity} attempts remaining. \nPlease guess a number : "))
       if user_guess < number:
         print("too low")
         guess_quantity -= 1
@@ -31,7 +31,7 @@ def difficulty_level(guess_quantity):
         print("Congratulations, you guessed the number")
         continue_game = False
     else:
-      print("You lose")
+      print(f"The number was {number}. You lose")
       continue_game = False
 
 user_difficulty_choice = input("Choose a difficulty: Type 'e' for 'easy' or type 'h' for 'hard' :").lower()
